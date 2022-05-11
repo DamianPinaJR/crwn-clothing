@@ -1,9 +1,9 @@
-import { google } from "../../utils/firebase/firebase.utils";
+import { google, createUserDocFromAuth } from "../../utils/firebase/firebase.utils";
 
 const SignIn = () => {
     const logGoogleUser = async() => {
-        const responce = await google();
-        console.log(responce)
+        const { user } = await google();
+        createUserDocFromAuth(user)
     }
     return(
         <div>
